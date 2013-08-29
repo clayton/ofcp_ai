@@ -34,9 +34,20 @@ describe "Hand Setting" do
     end
   end
   context "When Dealt a Strong Draw" do
-    it "should put four to a flush in the bottom" do
-      sut = HandSetter.new(StubbedCategorizer.new("FourToFlush"))
-      expect(sut.set(%w(8c Kh Qh Jh 10h))).to eq([[],%w(8c),%w(Kh Qh Jh 10h)])
+    it "should put a flush draw in the back" do
+      pending "find flush draw cards"
+      # sut = HandSetter.new(StubbedCategorizer.new("FourToFlush"))
+      # expect(sut.set(%w(Kh Qh 8c Jh 10h))).to eq([[],%w(8c),%w(Kh Qh Jh 10h)])
+    end
+    it "should put a straight draw in the back" do
+      pending "find straight draw cards"
+      # sut = HandSetter.new(StubbedCategorizer.new("OpenEndedStraight"))
+      # expect(sut.set(%w(Kc Qh 8c Jh 10h))).to eq([[],%w(8c),%w(Kc Qh Jh 10h)])
+    end
+    it "should put two pair in the back" do
+      pending "find two pair cards"
+      # sut = HandSetter.new(StubbedCategorizer.new("TwoPair"))
+      # expect(sut.set(%w(8c 8d Qh Qc 10h))).to eq([[],%w(10h),%w(8c 8d Qh Qc)])
     end
   end
 end
