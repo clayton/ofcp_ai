@@ -1,14 +1,20 @@
 require 'ofcp_scoring'
 
-class HandCategorizer
-  def initialize(categorizer = OfcpScoring::HandCategorizer.new)
-    @categorizer = categorizer
+class HandCategorizer < OfcpScoring::HandCategorizer
+  def categorize(cards)
+    categorized_hand = super
+    rank_name = categorized_hand.rank_name
+
+    if rank_name == "HighCard"
+      rank_name = "OpenEndedStraight"
+      rank_name = "FourToAFlush" if flush_draw?(categorized_hand)
+    end
+
+    rank_name
   end
 
-  def categorize(cards)
-    categorized_hand = @categorizer.categorize(cards).rank_name
-    return "FourToAFlush" if categorized_hand == "HighCard"
-    # return "OpenEndedStraight" if categorized_hand == "HighCard"
-    categorized_hand
+private
+  def flush_draw?(hand)
+    hand.suits.values.max == 4
   end
 end

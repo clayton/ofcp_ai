@@ -11,16 +11,12 @@ describe "Hand Categorization" do
   end
   describe "Categorizing Draws" do
     it "should categorize a hand with four to a flush" do
-      categorizer = FakeCategorizer.new
-      categorizer.stub(:categorize).and_return(CategorizedHand.new("HighCard"))
-      sut = HandCategorizer.new(categorizer)
-      expect(sut.categorize(%w(Ah Ac Kc 10c Jd))).to eq("FourToAFlush")
+      sut = HandCategorizer.new
+      expect(sut.categorize(%w(8c Ac Kc 10c Jd))).to eq("FourToAFlush")
     end
     it "should categorize a hand with an open ended straight" do
-      # categorizer = FakeCategorizer.new
-      # categorizer.stub(:categorize).and_return(CategorizedHand.new("HighCard"))
-      # sut = HandCategorizer.new(categorizer)
-      # expect(sut.categorize(%w(Kc Qc 10c Jd))).to eq("OpenEndedStraight")
+      sut = HandCategorizer.new
+      expect(sut.categorize(%w(4d Kc Qc 10c Jd))).to eq("OpenEndedStraight")
     end
   end
 
