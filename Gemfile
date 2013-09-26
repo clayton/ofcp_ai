@@ -7,4 +7,4 @@ gem 'autotest-doom'
 
 gem 'simplecov', :require => false, :group => :test
 
-gem 'ofcp_scoring'
+gem 'ofcp_scoring', '~>0.1.0'

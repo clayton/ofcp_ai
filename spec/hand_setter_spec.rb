@@ -35,12 +35,11 @@ describe "Hand Setting" do
   end
   context "When Dealt a Strong Draw" do
     it "should put a flush draw in the back" do
-      pending "find flush draw cards"
-      # sut = HandSetter.new(StubbedCategorizer.new("FourToFlush"))
-      # expect(sut.set(%w(Kh Qh 8c Jh 10h))).to eq([[],%w(8c),%w(Kh Qh Jh 10h)])
+      sut = HandSetter.new(StubbedCategorizer.new("FourToFlush"))
+      expect(sut.set(%w(Kh Qh 8c Jh 10h))).to eq([[],%w(8c),%w(Kh Qh Jh 10h)])
     end
     it "should put a straight draw in the back" do
-      pending "find straight draw cards"
+      pending "organize the straight"
       # sut = HandSetter.new(StubbedCategorizer.new("OpenEndedStraight"))
       # expect(sut.set(%w(Kc Qh 8c Jh 10h))).to eq([[],%w(8c),%w(Kc Qh Jh 10h)])
     end
